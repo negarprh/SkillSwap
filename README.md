@@ -269,16 +269,3 @@ Possible improvements include:
 * UI animations
 
 ---
-
-# Author
-
-Negar Piraseth
-Computer Science Student – LaSalle College
-
-GitHub
-
-```
-https://github.com/negarprh
-```
-
----
