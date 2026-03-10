@@ -1,0 +1,39 @@
+<section class="page-section">
+  <a [routerLink]="['/jobs', job()?.id]" class="back-link">← Back to job</a>
+
+  <h1>Manage Proposals</h1>
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <article class="job-summary" *ngIf="job() as currentJob">
+    <h2>{{ currentJob.title }}</h2>
+    <p>Status: <app-status-badge [status]="currentJob.status" /></p>
+  </article>
+
+  <div *ngIf="loading()" class="skeleton"></div>
+
+  <div class="proposals-grid" *ngIf="!loading() && proposals().length">
+    <article class="proposal-card" *ngFor="let proposal of proposals()">
+      <div class="title-row">
+        <h2>Freelancer: {{ freelancerNames()[proposal.freelancer_id] || proposal.freelancer_id }}</h2>
+        <app-status-badge [status]="proposal.status" />
+      </div>
+      <p class="price">{{ proposal.price | currency: 'USD' }}</p>
+      <p>{{ proposal.cover_letter }}</p>
+      <button
+        *ngIf="proposal.status === 'pending'"
+        type="button"
+        [disabled]="actionId() === proposal.id || job()?.status !== 'open'"
+        (click)="acceptProposal(proposal)"
+      >
+        {{ actionId() === proposal.id ? 'Accepting...' : 'Accept Proposal' }}
+      </button>
+    </article>
+  </div>
+
+  <app-empty-state
+    *ngIf="!loading() && !proposals().length"
+    title="No proposals yet"
+    description="Freelancers will appear here once they bid on this job."
+  />
+</section>
+

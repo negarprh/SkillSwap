@@ -1,0 +1,7 @@
+<div class="toast-container">
+  <article *ngFor="let toast of notifications.toasts()" class="toast" [ngClass]="toast.kind">
+    <p>{{ toast.message }}</p>
+    <button type="button" (click)="notifications.dismiss(toast.id)">×</button>
+  </article>
+</div>
+

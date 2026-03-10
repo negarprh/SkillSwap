@@ -1,0 +1,6 @@
+<div class="empty-state">
+  <h3>{{ title }}</h3>
+  <p>{{ description }}</p>
+  <a *ngIf="actionLabel && actionLink" [routerLink]="actionLink" class="action-btn">{{ actionLabel }}</a>
+</div>
+

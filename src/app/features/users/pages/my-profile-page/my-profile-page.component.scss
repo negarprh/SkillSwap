@@ -1,0 +1,45 @@
+.page-section {
+  display: grid;
+  gap: 1rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.profile-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  background: #fff;
+  padding: 1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.username {
+  margin: -0.3rem 0 0;
+  color: #64748b;
+}
+
+.bio {
+  color: #334155;
+}
+
+.reviews-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.review-card {
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+}
+
+.review-card p {
+  margin: 0.35rem 0 0;
+  color: #334155;
+}
+

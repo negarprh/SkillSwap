@@ -1,0 +1,36 @@
+<section class="auth-page">
+  <article class="auth-card">
+    <h1>Sign in</h1>
+    <p>Access your dashboard, proposals, and active projects.</p>
+
+    <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        Email
+        <input type="email" formControlName="email" placeholder="you@example.com" />
+      </label>
+      <p class="field-error" *ngIf="form.controls.email.touched && form.controls.email.invalid">
+        Enter a valid email address.
+      </p>
+
+      <label>
+        Password
+        <input type="password" formControlName="password" placeholder="Your password" />
+      </label>
+      <p class="field-error" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+        Password is required.
+      </p>
+
+      <button type="submit" [disabled]="submitting()">
+        {{ submitting() ? 'Signing in...' : 'Sign in' }}
+      </button>
+    </form>
+
+    <p class="footer-link">
+      New to SkillSwap?
+      <a routerLink="/register">Create an account</a>
+    </p>
+  </article>
+</section>
+

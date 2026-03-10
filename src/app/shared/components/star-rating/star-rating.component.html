@@ -1,0 +1,5 @@
+<div class="stars" [ngClass]="size">
+  <span *ngFor="let star of stars()" [class.filled]="value >= star">★</span>
+  <span class="rating-number">{{ value | number: '1.1-1' }}</span>
+</div>
+

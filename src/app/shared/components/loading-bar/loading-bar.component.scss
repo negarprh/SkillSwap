@@ -1,0 +1,27 @@
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1300;
+  overflow: hidden;
+  background: rgba(15, 118, 110, 0.1);
+}
+
+.line {
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, #0f766e, #0ea5e9);
+  animation: loadingSlide 1s ease-in-out infinite;
+}
+
+@keyframes loadingSlide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}
+

@@ -1,0 +1,21 @@
+<header class="navbar">
+  <a routerLink="/" class="brand">SkillSwap</a>
+
+  <nav class="nav-links">
+    <a routerLink="/jobs" routerLinkActive="active">Browse Jobs</a>
+
+    <ng-container *ngIf="auth.isAuthenticated(); else guestLinks">
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/my-postings" routerLinkActive="active">My Postings</a>
+      <a routerLink="/my-bids" routerLinkActive="active">My Bids</a>
+      <a routerLink="/me" routerLinkActive="active">My Profile</a>
+      <button type="button" (click)="logout()">Logout</button>
+    </ng-container>
+  </nav>
+</header>
+
+<ng-template #guestLinks>
+  <a routerLink="/login" routerLinkActive="active">Login</a>
+  <a routerLink="/register" routerLinkActive="active">Register</a>
+</ng-template>
+

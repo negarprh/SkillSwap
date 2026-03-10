@@ -1,0 +1,76 @@
+<section class="auth-page">
+  <article class="auth-card">
+    <h1>Create account</h1>
+    <p>Join SkillSwap as a client, freelancer, or both.</p>
+
+    <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+    <div class="suggestion" *ngIf="suggestedUsername()">
+      <p>
+        Suggested username:
+        <strong>{{ suggestedUsername() }}</strong>
+      </p>
+      <button type="button" (click)="applySuggestion()">Use suggestion</button>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        Full name
+        <input type="text" formControlName="name" placeholder="Jane Smith" />
+      </label>
+      <p class="field-error" *ngIf="form.controls.name.touched && form.controls.name.invalid">
+        Name must be at least 2 characters.
+      </p>
+
+      <label>
+        Username
+        <input type="text" formControlName="username" placeholder="janesmith" />
+      </label>
+      <p class="field-error" *ngIf="form.controls.username.touched && form.controls.username.invalid">
+        Username must be 3-32 chars and use letters, numbers, `.`, `_`, or `-`.
+      </p>
+
+      <label>
+        Email
+        <input type="email" formControlName="email" placeholder="you@example.com" />
+      </label>
+      <p class="field-error" *ngIf="form.controls.email.touched && form.controls.email.invalid">
+        Enter a valid email.
+      </p>
+
+      <label>
+        Password
+        <input type="password" formControlName="password" placeholder="At least 8 characters" />
+      </label>
+      <p class="field-error" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+        Password must be at least 8 characters.
+      </p>
+
+      <label>
+        Bio
+        <textarea formControlName="bio" rows="4" placeholder="Tell others about your expertise"></textarea>
+      </label>
+      <p class="field-error" *ngIf="form.controls.bio.touched && form.controls.bio.invalid">
+        Bio must be 10-500 characters.
+      </p>
+
+      <label>
+        Skills
+        <app-skills-chips-input formControlName="skills" />
+      </label>
+      <p class="field-error" *ngIf="form.controls.skills.touched && form.controls.skills.invalid">
+        Add at least one skill.
+      </p>
+
+      <button type="submit" [disabled]="submitting()">
+        {{ submitting() ? 'Creating account...' : 'Create account' }}
+      </button>
+    </form>
+
+    <p class="footer-link">
+      Already have an account?
+      <a routerLink="/login">Sign in</a>
+    </p>
+  </article>
+</section>
+

@@ -1,0 +1,125 @@
+<section class="page-section">
+  <a routerLink="/jobs" class="back-link">← Back to jobs</a>
+
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <div *ngIf="loading()" class="skeleton"></div>
+
+  <article class="job-card" *ngIf="!loading() && job() as data">
+    <div class="title-row">
+      <h1>{{ data.title }}</h1>
+      <app-status-badge [status]="data.status" />
+    </div>
+
+    <p class="description">{{ data.description }}</p>
+
+    <div class="meta-grid">
+      <div>
+        <span>Budget</span>
+        <strong>{{ data.budget | currency: 'USD' }}</strong>
+      </div>
+      <div>
+        <span>Category</span>
+        <strong>{{ data.category }}</strong>
+      </div>
+      <div>
+        <span>Owner</span>
+        <a [routerLink]="['/users', data.owner.username]">{{ data.owner.name }}</a>
+      </div>
+      <div>
+        <span>Freelancer</span>
+        <ng-container *ngIf="data.freelancer as freelancer; else noFreelancer">
+          <a [routerLink]="['/users', freelancer.username]">{{ freelancer.name }}</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <ng-template #noFreelancer>
+      <strong>Not assigned</strong>
+    </ng-template>
+
+    <div class="action-row">
+      <a *ngIf="isOwner()" [routerLink]="['/jobs', data.id, 'edit']" class="ghost-btn">Edit Job</a>
+      <a *ngIf="isOwner()" [routerLink]="['/jobs', data.id, 'proposals']" class="ghost-btn">Manage Proposals</a>
+      <button *ngIf="canComplete()" type="button" (click)="completeJob()" [disabled]="actionLoading()">
+        {{ actionLoading() ? 'Updating...' : 'Mark as Completed' }}
+      </button>
+    </div>
+  </article>
+
+  <section class="proposal-card" *ngIf="!loading() && canSubmitProposal()">
+    <h2>Submit Proposal</h2>
+    <form [formGroup]="proposalForm" (ngSubmit)="submitProposal()">
+      <label>
+        Proposed Price
+        <input type="number" min="1" step="0.01" formControlName="price" />
+      </label>
+      <p class="field-error" *ngIf="proposalForm.controls.price.touched && proposalForm.controls.price.invalid">
+        Enter a price greater than 0.
+      </p>
+
+      <label>
+        Cover Letter
+        <textarea rows="4" formControlName="cover_letter"></textarea>
+      </label>
+      <p
+        class="field-error"
+        *ngIf="proposalForm.controls.cover_letter.touched && proposalForm.controls.cover_letter.invalid"
+      >
+        Cover letter should be at least 10 characters.
+      </p>
+
+      <button type="submit" [disabled]="actionLoading()">
+        {{ actionLoading() ? 'Submitting...' : 'Submit Proposal' }}
+      </button>
+    </form>
+  </section>
+
+  <section
+    class="info-card"
+    *ngIf="
+      !loading() &&
+      job()?.status === 'open' &&
+      !isOwner() &&
+      !canSubmitProposal() &&
+      userBids().some((bid) => bid.job_id === job()?.id && bid.status === 'pending')
+    "
+  >
+    <p>You already have a pending proposal for this job.</p>
+  </section>
+
+  <section class="review-card" *ngIf="!loading() && job()?.status === 'completed'">
+    <h2>Review</h2>
+    <app-error-banner *ngIf="reviewError()" [message]="reviewError()" (dismissed)="reviewError.set('')" />
+
+    <form *ngIf="canReview(); else reviewInfo" [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+      <label>
+        Rating (1-5)
+        <input type="number" min="1" max="5" step="1" formControlName="rating" />
+      </label>
+      <p class="field-error" *ngIf="reviewForm.controls.rating.touched && reviewForm.controls.rating.invalid">
+        Rating must be an integer from 1 to 5.
+      </p>
+
+      <label>
+        Comment
+        <textarea rows="3" formControlName="comment"></textarea>
+      </label>
+
+      <button type="submit" [disabled]="actionLoading()">
+        {{ actionLoading() ? 'Submitting...' : 'Submit Review' }}
+      </button>
+    </form>
+
+    <ng-template #reviewInfo>
+      <p *ngIf="alreadyReviewed()">You already submitted your review for this job.</p>
+      <p *ngIf="!alreadyReviewed() && !isParticipant()">Only job participants can review this project.</p>
+    </ng-template>
+  </section>
+
+  <app-empty-state
+    *ngIf="!loading() && !job() && !errorMessage()"
+    title="Job not available"
+    description="It may have been removed or you may not have access."
+  />
+</section>

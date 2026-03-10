@@ -1,0 +1,39 @@
+<section class="page-section">
+  <h1>My Bids</h1>
+  <p class="subtitle">Track your submitted proposals and withdraw pending ones.</p>
+
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <div *ngIf="loading()" class="skeleton"></div>
+
+  <div class="bids-grid" *ngIf="!loading() && bids().length">
+    <article class="bid-card" *ngFor="let bid of bids()">
+      <div class="title-row">
+        <h2>Job #{{ bid.job_id }}</h2>
+        <app-status-badge [status]="bid.status" />
+      </div>
+      <p class="price">{{ bid.price | currency: 'USD' }}</p>
+      <p>{{ bid.cover_letter }}</p>
+      <div class="actions">
+        <a [routerLink]="['/jobs', bid.job_id]">View Job</a>
+        <button
+          type="button"
+          *ngIf="bid.status === 'pending'"
+          [disabled]="actionId() === bid.id"
+          (click)="withdraw(bid)"
+        >
+          {{ actionId() === bid.id ? 'Withdrawing...' : 'Withdraw' }}
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <app-empty-state
+    *ngIf="!loading() && !bids().length"
+    title="No bids yet"
+    description="Browse jobs and submit your first proposal."
+    actionLabel="Browse Jobs"
+    [actionLink]="['/jobs']"
+  />
+</section>
+

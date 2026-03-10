@@ -1,0 +1,46 @@
+<section class="page-section">
+  <div class="header">
+    <h1>My Job Postings</h1>
+    <a routerLink="/jobs/new" class="create-btn">New Job</a>
+  </div>
+
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <div *ngIf="loading()" class="skeleton"></div>
+
+  <div class="jobs-grid" *ngIf="!loading() && jobs().length">
+    <article class="job-card" *ngFor="let job of jobs()">
+      <div class="title-row">
+        <h2>{{ job.title }}</h2>
+        <app-status-badge [status]="job.status" />
+      </div>
+      <p>{{ job.description }}</p>
+      <div class="meta">
+        <span>{{ job.category }}</span>
+        <strong>{{ job.budget | currency: 'USD' }}</strong>
+      </div>
+      <div class="actions">
+        <a [routerLink]="['/jobs', job.id]">View</a>
+        <a [routerLink]="['/jobs', job.id, 'edit']">Edit</a>
+        <a [routerLink]="['/jobs', job.id, 'proposals']">Proposals</a>
+        <button
+          type="button"
+          *ngIf="job.status === 'in_progress'"
+          [disabled]="actionInProgress() === job.id"
+          (click)="markCompleted(job.id)"
+        >
+          {{ actionInProgress() === job.id ? 'Completing...' : 'Complete Job' }}
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <app-empty-state
+    *ngIf="!loading() && !jobs().length"
+    title="You have no job postings"
+    description="Create your first listing to hire freelancers."
+    actionLabel="Create Job"
+    [actionLink]="['/jobs/new']"
+  />
+</section>
+

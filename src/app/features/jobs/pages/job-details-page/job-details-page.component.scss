@@ -1,0 +1,142 @@
+.page-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.back-link {
+  color: #0f766e;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.job-card,
+.proposal-card,
+.review-card,
+.info-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  background: #fff;
+  padding: 1rem;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.description {
+  color: #334155;
+}
+
+.meta-grid {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.meta-grid div {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.65rem;
+}
+
+.meta-grid span {
+  display: block;
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-bottom: 0.2rem;
+}
+
+.meta-grid a {
+  color: #0f766e;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.action-row {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.action-row button,
+.ghost-btn,
+.proposal-card button,
+.review-card button {
+  border: 0;
+  border-radius: 0.7rem;
+  padding: 0.6rem 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.action-row button,
+.proposal-card button,
+.review-card button {
+  background: #0f766e;
+  color: #fff;
+}
+
+.ghost-btn {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+form {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+label {
+  display: grid;
+  gap: 0.32rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 0.7rem;
+  padding: 0.65rem 0.75rem;
+  font-family: inherit;
+}
+
+.field-error {
+  margin: -0.12rem 0 0;
+  color: #b91c1c;
+  font-size: 0.82rem;
+}
+
+.info-card p {
+  margin: 0;
+  color: #334155;
+}
+
+.skeleton {
+  height: 140px;
+  border-radius: 0.9rem;
+  background: linear-gradient(90deg, #f1f5f9, #e2e8f0, #f1f5f9);
+  background-size: 200% 100%;
+  animation: pulse 1.3s linear infinite;
+}
+
+@keyframes pulse {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+

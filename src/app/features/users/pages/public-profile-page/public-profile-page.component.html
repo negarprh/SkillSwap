@@ -1,0 +1,49 @@
+<section class="page-section">
+  <a routerLink="/jobs" class="back-link">← Back to jobs</a>
+
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <article *ngIf="profile() as profileData" class="profile-card">
+    <h1>{{ profileData.name }}</h1>
+    <p class="username">@{{ profileData.username }}</p>
+
+    <div class="meta-grid">
+      <div>
+        <span>Rating</span>
+        <app-star-rating [value]="profileData.rating_avg" />
+      </div>
+      <div>
+        <span>Completed Jobs</span>
+        <strong>{{ profileData.completed_jobs ?? 0 }}</strong>
+      </div>
+    </div>
+
+    <p class="bio">{{ profileData.bio }}</p>
+    <app-skills-list [skills]="profileData.skills" />
+  </article>
+
+  <section *ngIf="profile()" class="reviews-section">
+    <h2>Reviews</h2>
+    <app-error-banner
+      *ngIf="reviewsError()"
+      [message]="reviewsError()"
+      (dismissed)="reviewsError.set('')"
+    />
+
+    <div *ngIf="loadingReviews()" class="review-skeleton"></div>
+
+    <div *ngIf="!loadingReviews() && reviews().length" class="reviews-grid">
+      <article class="review-card" *ngFor="let review of reviews()">
+        <app-star-rating [value]="review.rating" size="sm" />
+        <p>{{ review.comment || 'No comment provided.' }}</p>
+      </article>
+    </div>
+
+    <app-empty-state
+      *ngIf="!loadingReviews() && !reviews().length && !reviewsError()"
+      title="No reviews yet"
+      description="Reviews will appear after completed projects."
+    />
+  </section>
+</section>
+

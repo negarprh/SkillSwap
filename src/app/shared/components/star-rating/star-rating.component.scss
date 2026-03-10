@@ -1,0 +1,29 @@
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: #cbd5e1;
+}
+
+span {
+  line-height: 1;
+}
+
+.filled {
+  color: #f59e0b;
+}
+
+.rating-number {
+  margin-left: 0.3rem;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.sm span {
+  font-size: 0.9rem;
+}
+
+.md span {
+  font-size: 1.1rem;
+}
+

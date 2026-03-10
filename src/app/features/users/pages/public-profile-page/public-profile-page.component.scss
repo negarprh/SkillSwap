@@ -1,0 +1,91 @@
+.page-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.profile-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.username {
+  margin: -0.5rem 0 0;
+  color: #64748b;
+}
+
+.meta-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.meta-grid div {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0.7rem;
+}
+
+.meta-grid span {
+  display: block;
+  font-size: 0.84rem;
+  color: #475569;
+  margin-bottom: 0.3rem;
+}
+
+.bio {
+  color: #334155;
+}
+
+.reviews-section {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.reviews-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.review-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.8rem;
+  background: #fff;
+  padding: 0.8rem;
+}
+
+.review-card p {
+  margin: 0.35rem 0 0;
+  color: #334155;
+}
+
+.review-skeleton {
+  height: 120px;
+  border-radius: 0.9rem;
+  background: linear-gradient(90deg, #f1f5f9, #e2e8f0, #f1f5f9);
+  background-size: 200% 100%;
+  animation: pulse 1.3s linear infinite;
+}
+
+@keyframes pulse {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+

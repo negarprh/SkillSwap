@@ -1,0 +1,28 @@
+<section class="page-section">
+  <h1>My Profile</h1>
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <article class="profile-card" *ngIf="profile() as data">
+    <h2>{{ data.name }}</h2>
+    <p class="username">@{{ data.username }}</p>
+    <app-star-rating [value]="data.rating_avg" />
+    <p class="bio">{{ data.bio }}</p>
+    <app-skills-list [skills]="data.skills" />
+  </article>
+
+  <section>
+    <h2>Reviews Received</h2>
+    <div class="reviews-grid" *ngIf="reviews().length">
+      <article class="review-card" *ngFor="let review of reviews()">
+        <app-star-rating [value]="review.rating" size="sm" />
+        <p>{{ review.comment || 'No comment provided.' }}</p>
+      </article>
+    </div>
+    <app-empty-state
+      *ngIf="!loading() && !reviews().length"
+      title="No reviews yet"
+      description="Your reviews will appear after completed projects."
+    />
+  </section>
+</section>
+

@@ -1,0 +1,5 @@
+<div *ngIf="message" class="error-banner" role="alert">
+  <span class="text">{{ message }}</span>
+  <button type="button" class="close-btn" (click)="dismissed.emit()">Dismiss</button>
+</div>
+

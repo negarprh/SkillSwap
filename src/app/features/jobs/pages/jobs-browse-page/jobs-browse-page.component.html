@@ -1,0 +1,59 @@
+<section class="page-section">
+  <h1>Browse Jobs</h1>
+  <p class="subtitle">Search open projects and filter by category, status, or budget.</p>
+
+  <form [formGroup]="filtersForm" (ngSubmit)="search()" class="filters-card">
+    <label>
+      Category
+      <input type="text" list="categories" formControlName="category" placeholder="e.g. Web Development" />
+      <datalist id="categories">
+        <option *ngFor="let category of categories" [value]="category"></option>
+      </datalist>
+    </label>
+
+    <label>
+      Status
+      <select formControlName="status">
+        <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+      </select>
+    </label>
+
+    <label>
+      Min Budget
+      <input type="number" min="0" step="0.01" formControlName="min_budget" placeholder="100" />
+    </label>
+
+    <div class="actions">
+      <button type="submit">Search</button>
+      <button type="button" class="ghost-btn" (click)="resetFilters()">Reset</button>
+    </div>
+  </form>
+
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <div *ngIf="loading()" class="jobs-grid">
+    <article class="job-card skeleton" *ngFor="let _ of [1, 2, 3, 4]"></article>
+  </div>
+
+  <div *ngIf="!loading() && jobs().length" class="jobs-grid">
+    <article class="job-card" *ngFor="let job of jobs()">
+      <div class="title-row">
+        <h3>{{ job.title }}</h3>
+        <app-status-badge [status]="job.status" />
+      </div>
+      <p>{{ job.description }}</p>
+      <div class="meta">
+        <span>{{ job.category }}</span>
+        <strong>{{ job.budget | currency: 'USD' }}</strong>
+      </div>
+      <a class="inline-link" [routerLink]="['/jobs', job.id]">View Details</a>
+    </article>
+  </div>
+
+  <app-empty-state
+    *ngIf="!loading() && !jobs().length && !errorMessage()"
+    title="No jobs match your filters"
+    description="Try broadening your search."
+  />
+</section>
+

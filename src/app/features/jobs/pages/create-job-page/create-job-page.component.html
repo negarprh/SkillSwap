@@ -1,0 +1,54 @@
+<section class="page-section">
+  <h1>Create Job</h1>
+  <p class="subtitle">Describe your project requirements and expected budget.</p>
+
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form-card">
+    <label>
+      Title
+      <input type="text" formControlName="title" placeholder="Need Angular frontend for dashboard" />
+    </label>
+    <p class="field-error" *ngIf="form.controls.title.touched && form.controls.title.invalid">
+      Title is required and should be at least 4 characters.
+    </p>
+
+    <label>
+      Description
+      <textarea formControlName="description" rows="6" placeholder="Describe scope, deliverables, and timeline"></textarea>
+    </label>
+    <p class="field-error" *ngIf="form.controls.description.touched && form.controls.description.invalid">
+      Description must be at least 12 characters.
+    </p>
+
+    <div class="grid-2">
+      <div>
+        <label>
+          Budget (USD)
+          <input type="number" min="1" step="0.01" formControlName="budget" />
+        </label>
+        <p class="field-error" *ngIf="form.controls.budget.touched && form.controls.budget.invalid">
+          Budget must be greater than 0.
+        </p>
+      </div>
+
+      <div>
+        <label>
+          Category
+          <input type="text" list="createCategories" formControlName="category" />
+          <datalist id="createCategories">
+            <option *ngFor="let category of categories" [value]="category"></option>
+          </datalist>
+        </label>
+        <p class="field-error" *ngIf="form.controls.category.touched && form.controls.category.invalid">
+          Category is required.
+        </p>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="submitting()">
+      {{ submitting() ? 'Creating...' : 'Create Job' }}
+    </button>
+  </form>
+</section>
+

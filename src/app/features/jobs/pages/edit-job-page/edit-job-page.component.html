@@ -1,0 +1,44 @@
+<section class="page-section">
+  <h1>Edit Job</h1>
+
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form-card" *ngIf="!loading() && job()">
+    <label>
+      Title
+      <input type="text" formControlName="title" />
+    </label>
+
+    <label>
+      Description
+      <textarea rows="6" formControlName="description"></textarea>
+    </label>
+
+    <div class="grid-3">
+      <label>
+        Budget
+        <input type="number" min="1" step="0.01" formControlName="budget" />
+      </label>
+
+      <label>
+        Category
+        <input type="text" list="editCategories" formControlName="category" />
+        <datalist id="editCategories">
+          <option *ngFor="let category of categories" [value]="category"></option>
+        </datalist>
+      </label>
+
+      <label>
+        Status
+        <select formControlName="status">
+          <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+        </select>
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="submitting()">
+      {{ submitting() ? 'Saving...' : 'Save Changes' }}
+    </button>
+  </form>
+</section>
+

@@ -1,0 +1,92 @@
+.page-section {
+  display: grid;
+  gap: 1rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: -0.4rem;
+  color: #475569;
+}
+
+.bids-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.bid-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.9rem;
+  background: #fff;
+  padding: 0.95rem;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.title-row h2 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.price {
+  margin: 0.35rem 0 0;
+  font-weight: 700;
+}
+
+.bid-card p {
+  color: #334155;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.actions a,
+.actions button {
+  border: 0;
+  border-radius: 0.65rem;
+  padding: 0.48rem 0.7rem;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.actions button {
+  background: #b91c1c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.actions button:disabled {
+  opacity: 0.7;
+}
+
+.skeleton {
+  height: 110px;
+  border-radius: 0.9rem;
+  background: linear-gradient(90deg, #f1f5f9, #e2e8f0, #f1f5f9);
+  background-size: 200% 100%;
+  animation: pulse 1.3s linear infinite;
+}
+
+@keyframes pulse {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+

@@ -1,0 +1,22 @@
+<div class="skills-input">
+  <div class="chips">
+    <span class="chip" *ngFor="let skill of skills">
+      {{ skill }}
+      <button type="button" (click)="removeSkill(skill)" [disabled]="disabled" aria-label="Remove skill">
+        ×
+      </button>
+    </span>
+  </div>
+
+  <div class="entry-row">
+    <input
+      type="text"
+      [disabled]="disabled"
+      [(ngModel)]="draft"
+      (keydown)="onKeydown($event)"
+      (blur)="markTouched()"
+      placeholder="Type a skill and press Enter"
+    />
+    <button type="button" [disabled]="disabled" (click)="addDraftAsSkill()">Add</button>
+  </div>
+</div>

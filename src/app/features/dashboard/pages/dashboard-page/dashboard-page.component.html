@@ -1,0 +1,79 @@
+<section class="page-section">
+  <h1>Dashboard</h1>
+  <p class="subtitle">Welcome back, {{ user()?.name }}.</p>
+
+  <app-error-banner *ngIf="errorMessage()" [message]="errorMessage()" (dismissed)="errorMessage.set('')" />
+
+  <div class="summary-grid">
+    <article class="summary-card">
+      <p>My Posted Jobs</p>
+      <h2>{{ postings().length }}</h2>
+    </article>
+    <article class="summary-card">
+      <p>My Bids</p>
+      <h2>{{ bids().length }}</h2>
+    </article>
+    <article class="summary-card profile">
+      <p>Current Rating</p>
+      <app-star-rating [value]="user()?.rating_avg ?? 0" />
+    </article>
+  </div>
+
+  <div class="actions">
+    <a routerLink="/jobs/new" class="action-btn">Post a New Job</a>
+    <a routerLink="/jobs" class="ghost-btn">Browse Marketplace</a>
+  </div>
+
+  <section>
+    <div class="section-header">
+      <h2>Recent Job Postings</h2>
+      <a routerLink="/my-postings">View all</a>
+    </div>
+    <div *ngIf="loading()" class="skeleton-list"></div>
+    <div class="list" *ngIf="!loading() && postings().length">
+      <article *ngFor="let job of postings().slice(0, 3)" class="list-card">
+        <div>
+          <h3>{{ job.title }}</h3>
+          <p>{{ job.budget | currency: 'USD' }} · {{ job.category }}</p>
+        </div>
+        <div class="right">
+          <app-status-badge [status]="job.status" />
+          <a [routerLink]="['/jobs', job.id]">View</a>
+        </div>
+      </article>
+    </div>
+    <app-empty-state
+      *ngIf="!loading() && !postings().length"
+      title="No postings yet"
+      description="Post your first job to start receiving proposals."
+      actionLabel="Create Job"
+      [actionLink]="['/jobs/new']"
+    />
+  </section>
+
+  <section>
+    <div class="section-header">
+      <h2>Recent Bids</h2>
+      <a routerLink="/my-bids">View all</a>
+    </div>
+    <div class="list" *ngIf="!loading() && bids().length">
+      <article *ngFor="let bid of bids().slice(0, 3)" class="list-card">
+        <div>
+          <h3>Job #{{ bid.job_id }}</h3>
+          <p>{{ bid.price | currency: 'USD' }}</p>
+        </div>
+        <div class="right">
+          <app-status-badge [status]="bid.status" />
+        </div>
+      </article>
+    </div>
+    <app-empty-state
+      *ngIf="!loading() && !bids().length"
+      title="No bids submitted yet"
+      description="Browse jobs and send your first proposal."
+      actionLabel="Browse Jobs"
+      [actionLink]="['/jobs']"
+    />
+  </section>
+</section>
+
