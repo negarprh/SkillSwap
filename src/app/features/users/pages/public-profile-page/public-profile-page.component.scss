@@ -11,11 +11,12 @@
 
 .profile-card {
   background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1rem;
-  padding: 1.1rem;
+  border: 1px solid #dbe4ef;
+  border-radius: 1.05rem;
+  padding: 1.15rem;
   display: grid;
   gap: 0.8rem;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
 }
 
 h1 {
@@ -34,9 +35,10 @@ h1 {
 }
 
 .meta-grid div {
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
+  border: 1px solid #e3ecf6;
+  border-radius: 0.8rem;
   padding: 0.7rem;
+  background: #f8fbff;
 }
 
 .meta-grid span {
@@ -61,10 +63,11 @@ h1 {
 }
 
 .review-card {
-  border: 1px solid #e2e8f0;
-  border-radius: 0.8rem;
+  border: 1px solid #dbe4ef;
+  border-radius: 0.9rem;
   background: #fff;
-  padding: 0.8rem;
+  padding: 0.82rem;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07);
 }
 
 .review-card p {
@@ -88,4 +91,3 @@ h1 {
     background-position: -200% 0;
   }
 }
-

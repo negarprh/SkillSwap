@@ -1,7 +1,12 @@
 .hero {
-  padding: 3rem 1.25rem;
-  background: radial-gradient(circle at top left, #99f6e4 0%, #f8fafc 48%, #e0f2fe 100%);
-  border-radius: 1.2rem;
+  padding: 3.2rem 1.5rem;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(45, 212, 191, 0.34), transparent 34%),
+    radial-gradient(circle at 78% 8%, rgba(56, 189, 248, 0.34), transparent 32%),
+    linear-gradient(120deg, #f8fafc, #eef5ff);
+  border-radius: 1.3rem;
+  border: 1px solid #d9e5f3;
+  box-shadow: 0 20px 46px rgba(15, 23, 42, 0.1);
 }
 
 .hero-content {
@@ -54,7 +59,7 @@ h1 {
 }
 
 .section {
-  margin-top: 2rem;
+  margin-top: 2.2rem;
   display: grid;
   gap: 1rem;
 }
@@ -82,10 +87,11 @@ h1 {
 .stat-card,
 .job-card,
 .skeleton-card {
-  border: 1px solid #e2e8f0;
+  border: 1px solid #dbe4ef;
   background: #fff;
-  border-radius: 0.9rem;
-  padding: 1rem;
+  border-radius: 1rem;
+  padding: 1.05rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
 .skeleton-card {
@@ -129,6 +135,15 @@ h1 {
   color: #334155;
 }
 
+.job-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.12);
+}
+
 .meta {
   display: flex;
   justify-content: space-between;
@@ -149,13 +164,13 @@ h1 {
 }
 
 .steps article {
-  border-radius: 0.9rem;
-  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  border: 1px solid #dbe4ef;
   background: #fff;
-  padding: 1rem;
+  padding: 1.05rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
 }
 
 .steps h3 {
   margin-top: 0;
 }
-

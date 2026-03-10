@@ -13,10 +13,11 @@
 .proposal-card,
 .review-card,
 .info-card {
-  border: 1px solid #e2e8f0;
-  border-radius: 1rem;
+  border: 1px solid #dbe4ef;
+  border-radius: 1.05rem;
   background: #fff;
-  padding: 1rem;
+  padding: 1.05rem;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.09);
 }
 
 .title-row {
@@ -42,9 +43,10 @@ h2 {
 }
 
 .meta-grid div {
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  padding: 0.65rem;
+  border: 1px solid #e4edf6;
+  border-radius: 0.8rem;
+  padding: 0.68rem;
+  background: #f8fbff;
 }
 
 .meta-grid span {
@@ -72,7 +74,7 @@ h2 {
 .proposal-card button,
 .review-card button {
   border: 0;
-  border-radius: 0.7rem;
+  border-radius: 0.78rem;
   padding: 0.6rem 0.85rem;
   font-weight: 700;
   text-decoration: none;
@@ -87,7 +89,7 @@ h2 {
 }
 
 .ghost-btn {
-  background: #e2e8f0;
+  background: #e7eef6;
   color: #0f172a;
 }
 
@@ -102,14 +104,6 @@ label {
   gap: 0.32rem;
   font-size: 0.9rem;
   font-weight: 600;
-}
-
-input,
-textarea {
-  border: 1px solid #cbd5e1;
-  border-radius: 0.7rem;
-  padding: 0.65rem 0.75rem;
-  font-family: inherit;
 }
 
 .field-error {
@@ -139,4 +133,3 @@ textarea {
     background-position: -200% 0;
   }
 }
-

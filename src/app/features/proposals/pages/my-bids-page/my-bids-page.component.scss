@@ -9,7 +9,7 @@ h1 {
 
 .subtitle {
   margin-top: -0.4rem;
-  color: #475569;
+  color: #55657a;
 }
 
 .bids-grid {
@@ -18,10 +18,11 @@ h1 {
 }
 
 .bid-card {
-  border: 1px solid #e2e8f0;
-  border-radius: 0.9rem;
+  border: 1px solid #dbe4ef;
+  border-radius: 1rem;
   background: #fff;
-  padding: 0.95rem;
+  padding: 0.98rem;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
 }
 
 .title-row {
@@ -54,7 +55,7 @@ h1 {
 .actions a,
 .actions button {
   border: 0;
-  border-radius: 0.65rem;
+  border-radius: 999px;
   padding: 0.48rem 0.7rem;
   text-decoration: none;
   font-size: 0.85rem;
@@ -89,4 +90,3 @@ h1 {
     background-position: -200% 0;
   }
 }
-

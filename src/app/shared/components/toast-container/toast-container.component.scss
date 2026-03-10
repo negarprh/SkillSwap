@@ -13,10 +13,11 @@
   justify-content: space-between;
   gap: 0.75rem;
   align-items: center;
-  border-radius: 0.8rem;
+  border-radius: 0.9rem;
   padding: 0.8rem 0.9rem;
   color: #f8fafc;
-  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.24);
+  box-shadow: 0 16px 34px rgba(2, 6, 23, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .toast p {
@@ -26,9 +27,14 @@
 
 .toast button {
   border: 0;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  width: 1.65rem;
+  height: 1.65rem;
+  display: grid;
+  place-items: center;
   color: inherit;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -43,4 +49,3 @@
 .info {
   background: #0f766e;
 }
-

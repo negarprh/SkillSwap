@@ -1,14 +1,14 @@
 .empty-state {
-  padding: 2rem;
+  padding: 2.1rem 1.4rem;
   border: 1px dashed #cbd5e1;
-  border-radius: 1rem;
+  border-radius: 1.1rem;
   text-align: center;
-  background: #f8fafc;
+  background: linear-gradient(180deg, #f8fafc, #eef6ff);
 }
 
 h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 }
 
 p {
@@ -19,11 +19,10 @@ p {
 .action-btn {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.6rem 1rem;
-  border-radius: 0.6rem;
+  padding: 0.62rem 1rem;
+  border-radius: 999px;
   background: #0f766e;
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
-

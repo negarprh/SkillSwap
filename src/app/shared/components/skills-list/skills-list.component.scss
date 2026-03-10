@@ -5,11 +5,11 @@
 }
 
 .chip {
-  background: #ecfeff;
+  background: linear-gradient(120deg, #ecfeff, #eff6ff);
   color: #115e59;
-  padding: 0.3rem 0.65rem;
+  padding: 0.32rem 0.66rem;
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 600;
+  border: 1px solid #bae6fd;
 }
-

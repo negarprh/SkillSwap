@@ -2,17 +2,18 @@
   min-height: calc(100vh - 120px);
   display: grid;
   place-items: center;
-  padding: 1rem;
+  padding: 1.2rem;
 }
 
 .auth-card {
   width: min(100%, 460px);
   background: #fff;
-  border-radius: 1rem;
-  border: 1px solid #e2e8f0;
-  padding: 1.4rem;
+  border-radius: 1.15rem;
+  border: 1px solid #dbe4ef;
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.13);
+  padding: 1.45rem;
   display: grid;
-  gap: 0.9rem;
+  gap: 0.95rem;
 }
 
 h1 {
@@ -21,7 +22,7 @@ h1 {
 
 p {
   margin: 0;
-  color: #475569;
+  color: #526276;
 }
 
 form {
@@ -37,18 +38,12 @@ label {
   color: #0f172a;
 }
 
-input {
-  border: 1px solid #cbd5e1;
-  border-radius: 0.7rem;
-  padding: 0.7rem 0.75rem;
-}
-
 button {
   margin-top: 0.5rem;
   border: 0;
-  border-radius: 0.8rem;
+  border-radius: 0.85rem;
   padding: 0.75rem;
-  background: #0f766e;
+  background: linear-gradient(135deg, #0f766e, #0f766e 62%, #0ea5e9);
   color: #fff;
   font-weight: 700;
   cursor: pointer;
@@ -74,4 +69,3 @@ button:disabled {
   text-decoration: none;
   font-weight: 700;
 }
-

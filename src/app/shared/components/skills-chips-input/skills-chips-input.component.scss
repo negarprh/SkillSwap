@@ -13,11 +13,12 @@
   display: inline-flex;
   gap: 0.35rem;
   align-items: center;
-  background: #dbeafe;
-  color: #1e3a8a;
-  padding: 0.3rem 0.6rem;
+  background: linear-gradient(120deg, #dbeafe, #ecfeff);
+  color: #1f3c88;
+  padding: 0.32rem 0.62rem;
   border-radius: 999px;
   font-size: 0.85rem;
+  border: 1px solid #bfdbfe;
 }
 
 .chip button {
@@ -35,19 +36,12 @@
   gap: 0.5rem;
 }
 
-input {
-  border: 1px solid #cbd5e1;
-  border-radius: 0.7rem;
-  padding: 0.65rem 0.75rem;
-}
-
 button {
   border: 0;
-  border-radius: 0.7rem;
+  border-radius: 999px;
   padding: 0.65rem 1rem;
   background: #0f766e;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
 }
-

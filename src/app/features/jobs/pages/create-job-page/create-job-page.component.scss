@@ -9,16 +9,17 @@ h1 {
 
 .subtitle {
   margin-top: -0.4rem;
-  color: #475569;
+  color: #55657a;
 }
 
 .form-card {
-  border: 1px solid #e2e8f0;
-  border-radius: 1rem;
+  border: 1px solid #dbe4ef;
+  border-radius: 1.05rem;
   background: #fff;
-  padding: 1rem;
+  padding: 1.05rem;
   display: grid;
   gap: 0.7rem;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.09);
 }
 
 label {
@@ -26,14 +27,6 @@ label {
   gap: 0.35rem;
   font-size: 0.9rem;
   font-weight: 600;
-}
-
-input,
-textarea {
-  border: 1px solid #cbd5e1;
-  border-radius: 0.7rem;
-  padding: 0.7rem 0.75rem;
-  font-family: inherit;
 }
 
 .grid-2 {
@@ -51,7 +44,7 @@ textarea {
 button {
   width: fit-content;
   border: 0;
-  border-radius: 0.8rem;
+  border-radius: 999px;
   padding: 0.75rem 1rem;
   background: #0f766e;
   color: #fff;
@@ -63,4 +56,3 @@ button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
-

@@ -142,13 +142,3 @@ If backend payload keys change, only small mapping tweaks in `core/services/*` s
 ## Verification Status
 
 - `npm run build` passes successfully (production build).
-
-## Optional Commit Plan
-
-1. `chore: scaffold strict angular standalone project`
-2. `feat(core): add models services guards interceptors session handling`
-3. `feat(public): home jobs browse and public profiles with reviews`
-4. `feat(authenticated): dashboard jobs proposals bids and review flow`
-5. `style(ui): responsive polish loading states toasts and shared components`
-6. `docs: add architecture and business flow verification checklist`
-

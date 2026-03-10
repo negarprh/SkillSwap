@@ -9,7 +9,7 @@ h1 {
 
 .subtitle {
   margin: -0.4rem 0 0;
-  color: #475569;
+  color: #55657a;
 }
 
 .summary-grid {
@@ -19,10 +19,11 @@ h1 {
 }
 
 .summary-card {
-  border: 1px solid #e2e8f0;
-  border-radius: 0.9rem;
+  border: 1px solid #dbe4ef;
+  border-radius: 1rem;
   background: #fff;
-  padding: 0.9rem;
+  padding: 0.95rem;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
 }
 
 .summary-card p {
@@ -44,7 +45,7 @@ h1 {
 .action-btn,
 .ghost-btn {
   text-decoration: none;
-  border-radius: 0.8rem;
+  border-radius: 999px;
   padding: 0.68rem 0.95rem;
   font-weight: 700;
 }
@@ -80,10 +81,11 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.9rem;
+  border: 1px solid #dbe4ef;
+  border-radius: 1rem;
   background: #fff;
-  padding: 0.8rem;
+  padding: 0.86rem;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.07);
 }
 
 .list-card h3 {
@@ -124,4 +126,3 @@ h1 {
     background-position: -200% 0;
   }
 }
-
