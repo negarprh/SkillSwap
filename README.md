@@ -19,7 +19,7 @@ Frontend
 - RxJS
 - HTTP Interceptors
 
-Backend API (provided by instructor)
+Backend API
 
 - REST API
 - JWT Authentication
