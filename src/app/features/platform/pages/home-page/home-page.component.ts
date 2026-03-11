@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Job } from '../../../../core/models/job.model';
 import { PlatformStats } from '../../../../core/models/platform.model';
+import { AuthService } from '../../../../core/services/auth.service';
 import { JobsService } from '../../../../core/services/jobs.service';
 import { PlatformService } from '../../../../core/services/platform.service';
 import { extractErrorMessage } from '../../../../core/utils/error-message.util';
@@ -28,6 +29,7 @@ import { StatusBadgeComponent } from '../../../../shared/components/status-badge
 export class HomePageComponent {
   private readonly platformService = inject(PlatformService);
   private readonly jobsService = inject(JobsService);
+  readonly auth = inject(AuthService);
   private readonly destroyRef = inject(DestroyRef);
 
   readonly stats = signal<PlatformStats | null>(null);
@@ -76,4 +78,3 @@ export class HomePageComponent {
       });
   }
 }
-

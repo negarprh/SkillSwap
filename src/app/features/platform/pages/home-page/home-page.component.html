@@ -7,7 +7,7 @@
       execution, and exchange reviews.
     </p>
     <div class="cta-group">
-      <a routerLink="/register" class="primary-btn">Create Account</a>
+      <a *ngIf="!auth.isAuthenticated()" routerLink="/register" class="primary-btn">Create Account</a>
       <a routerLink="/jobs" class="secondary-btn">Explore Jobs</a>
     </div>
   </div>
@@ -88,4 +88,3 @@
     </article>
   </div>
 </section>
-

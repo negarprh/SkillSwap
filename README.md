@@ -5,25 +5,24 @@ The application allows users to register, post jobs, submit proposals, accept of
 
 This project demonstrates a **complete marketplace workflow**, **JWT authentication**, **API integration**, and **modern Angular architecture**.
 
-
 ---
 
 # Tech Stack
 
 Frontend
 
-* Angular
-* TypeScript
-* SCSS
-* Angular Router
-* Reactive Forms
-* RxJS
-* HTTP Interceptors
+- Angular
+- TypeScript
+- SCSS
+- Angular Router
+- Reactive Forms
+- RxJS
+- HTTP Interceptors
 
 Backend API (provided by instructor)
 
-* REST API
-* JWT Authentication
+- REST API
+- JWT Authentication
 
 ---
 
@@ -31,13 +30,13 @@ Backend API (provided by instructor)
 
 SkillSwap simulates a freelance marketplace platform where:
 
-* Users create accounts
-* Clients post jobs
-* Freelancers submit proposals
-* Clients accept proposals
-* Jobs progress through lifecycle states
-* Participants review each other
-* User ratings update automatically
+- Users create accounts
+- Clients post jobs
+- Freelancers submit proposals
+- Clients accept proposals
+- Jobs progress through lifecycle states
+- Participants review each other
+- User ratings update automatically
 
 The frontend communicates with a **real backend API** and handles all **authentication, validation, and error states**.
 
@@ -47,34 +46,34 @@ The frontend communicates with a **real backend API** and handles all **authenti
 
 ### Authentication
 
-* User registration
-* User login
-* JWT token handling
-* Secure API requests using HTTP interceptor
-* Automatic redirect on authentication errors
+- User registration
+- User login
+- JWT token handling
+- Secure API requests using HTTP interceptor
+- Automatic redirect on authentication errors
 
 ### User Profiles
 
-* View own profile
-* View public user profiles
-* Display user skills
-* Show rating and completed jobs
+- View own profile
+- View public user profiles
+- Display user skills
+- Show rating and completed jobs
 
 ### Jobs Marketplace
 
-* Browse available jobs
-* Filter jobs using search
-* View job details
-* Create new jobs
-* Update job details
-* Manage personal job postings
+- Browse available jobs
+- Filter jobs using search
+- View job details
+- Create new jobs
+- Update job details
+- Manage personal job postings
 
 ### Proposals System
 
-* Submit proposals for jobs
-* View proposals submitted
-* Accept a proposal (job owner)
-* Withdraw pending proposals
+- Submit proposals for jobs
+- View proposals submitted
+- Accept a proposal (job owner)
+- Withdraw pending proposals
 
 ### Job Lifecycle
 
@@ -86,17 +85,17 @@ open → in_progress → completed
 
 ### Reviews System
 
-* Participants review each other
-* Rating from 1–5
-* Reviews only allowed after job completion
+- Participants review each other
+- Rating from 1–5
+- Reviews only allowed after job completion
 
 ### Platform Statistics
 
 Public platform data including:
 
-* total users
-* active jobs
-* value exchanged
+- total users
+- active jobs
+- value exchanged
 
 ---
 
@@ -147,9 +146,9 @@ src/app/
 
 This structure ensures:
 
-* separation of concerns
-* reusable components
-* scalable architecture
+- separation of concerns
+- reusable components
+- scalable architecture
 
 ---
 
@@ -174,11 +173,11 @@ The application implements the required workflow:
 
 The application handles all documented API errors including:
 
-* 400 Bad Request
-* 401 Unauthorized
-* 403 Forbidden
-* 404 Not Found
-* 409 Conflict
+- 400 Bad Request
+- 401 Unauthorized
+- 403 Forbidden
+- 404 Not Found
+- 409 Conflict
 
 Errors are displayed clearly to the user through UI messages.
 
@@ -190,12 +189,12 @@ Reactive Forms ensure strong validation:
 
 Examples:
 
-* Required fields
-* Valid email format
-* Password constraints
-* Numeric budget validation
-* Rating limits (1–5)
-* Proposal price validation
+- Required fields
+- Valid email format
+- Password constraints
+- Numeric budget validation
+- Rating limits (1–5)
+- Proposal price validation
 
 ---
 
@@ -246,14 +245,38 @@ dist/
 
 This project demonstrates:
 
-* Correct API integration
-* JWT authentication handling
-* Clean Angular architecture
-* Error handling
-* Form validation
-* Complete marketplace business flow
-* Responsive UI
-* Organized code structure
+- Correct API integration
+- JWT authentication handling
+- Clean Angular architecture
+- Error handling
+- Form validation
+- Complete marketplace business flow
+- Responsive UI
+- Organized code structure
+
+---
+
+# Screenshots
+
+### Main Page
+
+![Main Page Hero](Docs/MainPage1.png)
+
+### Main Page (Stats + Jobs Preview)
+
+![Main Page Stats and Jobs](Docs/MainPage2.png)
+
+### Jobs Marketplace
+
+![Jobs Page](Docs/Jobs.png)
+
+### User Dashboard
+
+![User Dashboard](Docs/UserDashboard.png)
+
+### User Postings
+
+![User Postings](Docs/UserPostings.png)
 
 ---
 
@@ -261,11 +284,11 @@ This project demonstrates:
 
 Possible improvements include:
 
-* real-time notifications
-* messaging between users
-* job categories filtering
-* advanced search
-* profile editing
-* UI animations
+- real-time notifications
+- messaging between users
+- job categories filtering
+- advanced search
+- profile editing
+- UI animations
 
 ---
