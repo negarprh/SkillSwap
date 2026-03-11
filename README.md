@@ -1,4 +1,4 @@
-# SkillSwap – Freelance Marketplace Platform
+# SkillSwap - Freelance Marketplace Platform
 
 SkillSwap is a **freelance marketplace web application** built with Angular that integrates with a real REST API to simulate a complete freelance job marketplace workflow.
 
