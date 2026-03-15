@@ -22,6 +22,7 @@
       Min Budget
       <input type="number" min="0" step="0.01" formControlName="min_budget" placeholder="100" />
     </label>
+    <p class="field-error" *ngIf="minBudgetValidationError()">{{ minBudgetValidationError() }}</p>
 
     <div class="actions">
       <button type="submit">Search</button>
@@ -56,4 +57,3 @@
     description="Try broadening your search."
   />
 </section>
-

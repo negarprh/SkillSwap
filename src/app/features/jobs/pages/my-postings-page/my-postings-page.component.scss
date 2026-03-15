@@ -103,3 +103,20 @@ h1 {
     background-position: -200% 0;
   }
 }
+
+@media (max-width: 768px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}

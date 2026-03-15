@@ -30,6 +30,12 @@ label {
   font-weight: 600;
 }
 
+.field-error {
+  margin: -0.35rem 0 0;
+  color: #b91c1c;
+  font-size: 0.8rem;
+}
+
 .actions {
   display: flex;
   align-items: flex-end;
@@ -111,5 +117,26 @@ button {
   }
   to {
     background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 0.3rem;
   }
 }

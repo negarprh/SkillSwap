@@ -43,7 +43,7 @@ button[type='submit'] {
   border: 0;
   border-radius: 0.85rem;
   padding: 0.75rem;
-  background: linear-gradient(135deg, #0f766e, #0f766e 62%, #0ea5e9);
+  background: #0f766e;
   color: #fff;
   font-weight: 700;
   cursor: pointer;
@@ -88,4 +88,15 @@ button[type='submit']:disabled {
   color: #0f766e;
   text-decoration: none;
   font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .auth-card {
+    padding: 1rem;
+  }
+
+  .suggestion {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

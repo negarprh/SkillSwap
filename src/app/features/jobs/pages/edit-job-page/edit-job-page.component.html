@@ -8,17 +8,26 @@
       Title
       <input type="text" formControlName="title" />
     </label>
+    <p class="field-error" *ngIf="form.controls.title.touched && form.controls.title.invalid">
+      Title is required and should be at least 4 characters.
+    </p>
 
     <label>
       Description
       <textarea rows="6" formControlName="description"></textarea>
     </label>
+    <p class="field-error" *ngIf="form.controls.description.touched && form.controls.description.invalid">
+      Description is required and should be at least 12 characters.
+    </p>
 
     <div class="grid-3">
       <label>
         Budget
         <input type="number" min="1" step="0.01" formControlName="budget" />
       </label>
+      <p class="field-error" *ngIf="form.controls.budget.touched && form.controls.budget.invalid">
+        Budget must be greater than 0.
+      </p>
 
       <label>
         Category
@@ -27,6 +36,9 @@
           <option *ngFor="let category of categories" [value]="category"></option>
         </datalist>
       </label>
+      <p class="field-error" *ngIf="form.controls.category.touched && form.controls.category.invalid">
+        Category is required.
+      </p>
 
       <label>
         Status
@@ -34,6 +46,9 @@
           <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
         </select>
       </label>
+      <p class="field-error" *ngIf="form.controls.status.touched && form.controls.status.invalid">
+        Status must be one of: open, in_progress, completed.
+      </p>
     </div>
 
     <button type="submit" [disabled]="submitting()">
@@ -41,4 +56,3 @@
     </button>
   </form>
 </section>
-

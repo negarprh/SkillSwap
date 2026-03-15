@@ -27,6 +27,25 @@ import { StatusBadgeComponent } from '../../../../shared/components/status-badge
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
+  private readonly largeNumberUnits = [
+    '',
+    'thousand',
+    'million',
+    'billion',
+    'trillion',
+    'quadrillion',
+    'quintillion',
+    'sextillion',
+    'septillion',
+    'octillion',
+    'nonillion',
+    'decillion',
+  ] as const;
+  private readonly currencyFormatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  });
   private readonly platformService = inject(PlatformService);
   private readonly jobsService = inject(JobsService);
   readonly auth = inject(AuthService);
@@ -76,5 +95,36 @@ export class HomePageComponent {
           this.loadingJobs.set(false);
         },
       });
+  }
+
+  formatTotalValueMoved(value: number | string | null | undefined): string {
+    if (value === null || value === undefined || value === '') {
+      return '$0';
+    }
+
+    const numericValue = typeof value === 'number' ? value : Number(value);
+
+    if (!Number.isFinite(numericValue)) {
+      return '$0';
+    }
+
+    const absoluteValue = Math.abs(numericValue);
+    if (absoluteValue < 1_000) {
+      return this.currencyFormatter.format(numericValue);
+    }
+
+    const unitIndex = Math.min(
+      Math.floor(Math.log10(absoluteValue) / 3),
+      this.largeNumberUnits.length - 1,
+    );
+    const divisor = 1000 ** unitIndex;
+    const scaledValue = numericValue / divisor;
+    const formattedValue = new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: scaledValue >= 100 ? 0 : 1,
+      maximumFractionDigits: scaledValue >= 100 ? 0 : 1,
+    }).format(scaledValue);
+    const unit = this.largeNumberUnits[unitIndex];
+
+    return unit ? `$${formattedValue} ${unit}` : this.currencyFormatter.format(numericValue);
   }
 }

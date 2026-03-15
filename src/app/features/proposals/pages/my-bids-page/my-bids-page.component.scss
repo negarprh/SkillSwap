@@ -42,6 +42,14 @@ h1 {
   font-weight: 700;
 }
 
+.job-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0;
+  color: #64748b;
+}
+
 .bid-card p {
   color: #334155;
 }
@@ -88,5 +96,27 @@ h1 {
   }
   to {
     background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .job-meta {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions a,
+  .actions button {
+    width: 100%;
+    text-align: center;
   }
 }

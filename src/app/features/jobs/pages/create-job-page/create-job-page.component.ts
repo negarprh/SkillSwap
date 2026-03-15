@@ -54,8 +54,12 @@ export class CreateJobPageComponent {
       .pipe(finalize(() => this.submitting.set(false)))
       .subscribe({
         next: async (jobId) => {
+          if (!jobId) {
+            this.errorMessage.set('Job created but no job id was returned by the server.');
+            return;
+          }
           this.notifications.success('Job posted successfully.');
-          await this.router.navigate(['/jobs', jobId || '']);
+          await this.router.navigate(['/jobs', jobId]);
         },
         error: (error) => {
           this.errorMessage.set(extractErrorMessage(error));
@@ -63,4 +67,3 @@ export class CreateJobPageComponent {
       });
   }
 }
-

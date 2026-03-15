@@ -35,6 +35,7 @@ export class JobsBrowsePageComponent {
   readonly statuses = JOB_STATUSES;
   readonly loading = signal(false);
   readonly errorMessage = signal('');
+  readonly minBudgetValidationError = signal('');
   readonly jobs = signal<Job[]>([]);
 
   readonly filtersForm = this.fb.group({
@@ -51,10 +52,16 @@ export class JobsBrowsePageComponent {
     const raw = this.filtersForm.getRawValue();
     const minBudgetValue = raw.min_budget?.trim();
     const minBudget = minBudgetValue ? Number(minBudgetValue) : null;
+    if (minBudgetValue && (!Number.isFinite(minBudget) || Number(minBudget) < 0)) {
+      this.minBudgetValidationError.set('Min budget must be a valid number greater than or equal to 0.');
+      return;
+    }
+
+    this.minBudgetValidationError.set('');
     const payload = {
       category: raw.category?.trim() || undefined,
       status: (raw.status || 'open') as 'open' | 'in_progress' | 'completed',
-      min_budget: Number.isFinite(minBudget) ? minBudget : (minBudgetValue ? minBudgetValue : undefined),
+      min_budget: Number.isFinite(minBudget) ? minBudget : undefined,
     };
 
     this.loading.set(true);
@@ -81,7 +88,7 @@ export class JobsBrowsePageComponent {
       status: 'open',
       min_budget: '',
     });
+    this.minBudgetValidationError.set('');
     this.search();
   }
 }
-

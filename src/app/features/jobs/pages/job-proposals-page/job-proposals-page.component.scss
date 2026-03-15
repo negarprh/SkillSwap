@@ -94,3 +94,18 @@ button:disabled {
     background-position: -200% 0;
   }
 }
+
+@media (max-width: 768px) {
+  .title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .title-row h2 {
+    word-break: break-word;
+  }
+
+  button {
+    width: 100%;
+  }
+}

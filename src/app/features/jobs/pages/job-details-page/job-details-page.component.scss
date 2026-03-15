@@ -133,3 +133,22 @@ label {
     background-position: -200% 0;
   }
 }
+
+@media (max-width: 768px) {
+  .title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .action-row {
+    flex-direction: column;
+  }
+
+  .action-row button,
+  .ghost-btn,
+  .proposal-card button,
+  .review-card button {
+    width: 100%;
+    text-align: center;
+  }
+}

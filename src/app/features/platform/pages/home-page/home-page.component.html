@@ -8,6 +8,7 @@
     </p>
     <div class="cta-group">
       <a *ngIf="!auth.isAuthenticated()" routerLink="/register" class="primary-btn">Create Account</a>
+      <a *ngIf="!auth.isAuthenticated()" routerLink="/login" class="secondary-btn">Login</a>
       <a routerLink="/jobs" class="secondary-btn">Explore Jobs</a>
     </div>
   </div>
@@ -29,7 +30,7 @@
       <p>Active Jobs</p>
     </article>
     <article class="stat-card">
-      <h3>{{ stats()?.total_value_moved | currency: 'USD' }}</h3>
+      <h3>{{ formatTotalValueMoved(stats()?.total_value_moved) }}</h3>
       <p>Total Value Moved</p>
     </article>
   </div>

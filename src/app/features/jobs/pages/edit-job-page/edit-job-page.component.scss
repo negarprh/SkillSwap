@@ -24,6 +24,12 @@ label {
   font-weight: 600;
 }
 
+.field-error {
+  margin: -0.2rem 0 0;
+  color: #b91c1c;
+  font-size: 0.82rem;
+}
+
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -44,4 +50,14 @@ button {
 button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .form-card {
+    padding: 0.85rem;
+  }
+
+  button {
+    width: 100%;
+  }
 }

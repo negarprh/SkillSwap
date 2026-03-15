@@ -1,6 +1,6 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, DestroyRef, computed, inject, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { forkJoin, of } from 'rxjs';
@@ -42,6 +42,14 @@ export class JobDetailsPageComponent {
   private readonly notifications = inject(NotificationService);
   private readonly auth = inject(AuthService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly integerRatingValidator: ValidatorFn = (control) => {
+    const value = Number(control.value);
+    if (!Number.isFinite(value)) {
+      return { invalidRating: true };
+    }
+
+    return Number.isInteger(value) ? null : { invalidRating: true };
+  };
 
   readonly loading = signal(true);
   readonly actionLoading = signal(false);
@@ -57,7 +65,7 @@ export class JobDetailsPageComponent {
   });
 
   readonly reviewForm = this.fb.nonNullable.group({
-    rating: [5, [Validators.required, Validators.min(1), Validators.max(5)]],
+    rating: [5, [Validators.required, Validators.min(1), Validators.max(5), this.integerRatingValidator]],
     comment: ['', [Validators.maxLength(1000)]],
   });
 

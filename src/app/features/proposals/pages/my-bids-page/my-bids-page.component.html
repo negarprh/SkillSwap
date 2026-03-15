@@ -9,9 +9,12 @@
   <div class="bids-grid" *ngIf="!loading() && bids().length">
     <article class="bid-card" *ngFor="let bid of bids()">
       <div class="title-row">
-        <h2>Job #{{ bid.job_id }}</h2>
+        <h2>{{ relatedJobs()[bid.job_id]?.title || ('Job #' + bid.job_id) }}</h2>
         <app-status-badge [status]="bid.status" />
       </div>
+      <p class="job-meta" *ngIf="relatedJobs()[bid.job_id] as relatedJob">
+        {{ relatedJob.category }} · <app-status-badge [status]="relatedJob.status" />
+      </p>
       <p class="price">{{ bid.price | currency: 'USD' }}</p>
       <p>{{ bid.cover_letter }}</p>
       <div class="actions">
@@ -36,4 +39,3 @@
     [actionLink]="['/jobs']"
   />
 </section>
-

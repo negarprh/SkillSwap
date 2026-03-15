@@ -96,9 +96,23 @@ export class JobProposalsPageComponent {
       return;
     }
 
-    // The backend currently exposes public profiles by username, so names are best-effort from IDs.
-    const map = Object.fromEntries(ids.map((id) => [id, id]));
+    const map = Object.fromEntries(
+      ids.map((id) => {
+        const currentJob = this.job();
+        if (currentJob?.freelancer && currentJob.freelancer.id === id) {
+          return [id, `${currentJob.freelancer.name} (@${currentJob.freelancer.username})`];
+        }
+        return [id, this.formatFreelancerId(id)];
+      }),
+    );
     this.freelancerNames.set(map);
+  }
+
+  private formatFreelancerId(id: string): string {
+    if (id.length <= 12) {
+      return `ID: ${id}`;
+    }
+    return `ID: ${id.slice(0, 6)}...${id.slice(-4)}`;
   }
 
   acceptProposal(proposal: Proposal): void {

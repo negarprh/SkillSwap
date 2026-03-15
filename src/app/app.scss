@@ -2,3 +2,10 @@
   width: min(1120px, 100% - 2rem);
   margin: 1.2rem auto 2.6rem;
 }
+
+@media (max-width: 640px) {
+  .main-shell {
+    width: min(1120px, 100% - 1rem);
+    margin: 0.8rem auto 1.4rem;
+  }
+}

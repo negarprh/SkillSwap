@@ -101,3 +101,13 @@ button:not(:disabled):hover {
     transform: translateY(0);
   }
 }
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .page-section {
+    gap: 0.85rem;
+  }
+}

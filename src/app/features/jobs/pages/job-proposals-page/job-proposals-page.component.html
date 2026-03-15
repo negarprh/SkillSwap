@@ -14,7 +14,7 @@
   <div class="proposals-grid" *ngIf="!loading() && proposals().length">
     <article class="proposal-card" *ngFor="let proposal of proposals()">
       <div class="title-row">
-        <h2>Freelancer: {{ freelancerNames()[proposal.freelancer_id] || proposal.freelancer_id }}</h2>
+        <h2>Freelancer: {{ freelancerNames()[proposal.freelancer_id] || ('ID: ' + proposal.freelancer_id) }}</h2>
         <app-status-badge [status]="proposal.status" />
       </div>
       <p class="price">{{ proposal.price | currency: 'USD' }}</p>
@@ -36,4 +36,3 @@
     description="Freelancers will appear here once they bid on this job."
   />
 </section>
-
