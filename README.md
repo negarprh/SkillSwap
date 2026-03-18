@@ -129,11 +129,9 @@ This mirrors the reputation systems used in real freelance marketplaces.
 
 ### Backend API
 
-This frontend integrates with a REST API provided for educational purposes.
+This application integrates with a REST API provided as part of a software engineering project.
 
-The API is not included in this repository and is not publicly documented.
-
-Authentication is handled using JWT (Bearer tokens), and all business data is fetched from the backend.
+The frontend communicates with the backend using HTTP requests secured with JWT authentication, enabling a complete job marketplace workflow including job posting, proposals, and reviews.
 
 ---
 
