@@ -9,7 +9,7 @@ The application is designed to mimic the core functionality of platforms like **
 ---
 ## Live Demo
 
-🌐 **Live Link:** [Skiil Swap](skillswap-negar.vercel.app)
+🌐 **Live Link:** [Skill Swap](https://skillswap-negar.vercel.app/)
 
 ---
 
