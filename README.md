@@ -129,19 +129,11 @@ This mirrors the reputation systems used in real freelance marketplaces.
 
 ### Backend API
 
-The frontend integrates with a provided REST API:
+This frontend integrates with a REST API provided for educational purposes.
 
-```
-https://stingray-app-wxhhn.ondigitalocean.app
-```
+The API is not included in this repository and is not publicly documented.
 
-Authentication is performed using:
-
-```
-Authorization: Bearer <JWT_TOKEN>
-```
-
-All business data is fetched from this backend API.
+Authentication is handled using JWT (Bearer tokens), and all business data is fetched from the backend.
 
 ---
 
