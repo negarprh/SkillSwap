@@ -221,7 +221,7 @@ npm install
 ### Start the development server
 
 ```
-ng serve
+npm start
 ```
 
 The application will run at:
