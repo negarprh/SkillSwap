@@ -7,6 +7,7 @@ export const DEFAULT_JOB_CATEGORIES = [
   'Content Writing',
   'Marketing',
   'QA Testing',
+  'Tutoring',
   'General',
 ];
 
