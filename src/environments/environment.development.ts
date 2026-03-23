@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://stingray-app-wxhhn.ondigitalocean.app',
+  apiBaseUrl: 'http://localhost:3000',
 };
 
